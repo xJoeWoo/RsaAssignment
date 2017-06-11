@@ -5,8 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RSA"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="RSA" Height="600" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="TbInputEncrypt" TextWrapping="Wrap" TextChanged="TbInputEncrypt_OnTextChanged" />
+        <TextBox x:Name="TbEncrypt" TextWrapping="Wrap" Grid.Column="1" IsReadOnly="True"  />
+
+        <TextBox x:Name="TbInputDecrypt" TextWrapping="Wrap" Grid.Row="1" IsReadOnly="True"  TextChanged="TbInputDecrypt_OnTextChanged" />
+        <TextBox x:Name="TbDecrypt" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" IsReadOnly="True" />
+
+        <Grid  Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="BtnNewKey" Grid.RowSpan="2" Content="新密钥" Click="BtnNewKey_OnClick"/>
+            <Button x:Name="BtnLoadMsg" Grid.Column="2" Content="载入明文" Click="BtnLoadMsg_OnClick" />
+            <Button x:Name="BtnSaveMsg" Grid.Column="2"  Grid.Row="1"  Content="保存明文" Click="BtnSaveMsg_OnClick"/>
+            <Button x:Name="BtnLoadKey" Grid.Column="1"  Content="载入密钥" Click="BtnLoadKey_OnClick" />
+            <Button x:Name="BtnSaveKey" Grid.Column="1"  Grid.Row="1" Content="保存密钥" Click="BtnSaveKey_OnClick" />
+            <Button x:Name="BtnLoadCipherText" Grid.Column="3"  Content="载入密文" Click="BtnLoadCipherText_OnClick" />
+            <Button x:Name="BtnSaveCipherText" Grid.Column="3"  Grid.Row="1" Content="保存密文" Click="BtnSaveCipherText_OnClick" />
+
+        </Grid>
+        <TextBlock x:Name="TxtInfo" Grid.Row="2" Grid.Column="1" />
+
+        <TextBox x:Name="TbDataHash" TextWrapping="Wrap" Grid.Row="3" IsReadOnly="True" />
+        <TextBox x:Name="TbSignHash" TextWrapping="Wrap" Grid.Row="3" Grid.Column="1" IsReadOnly="True" />
+
+        <TextBox x:Name="TbDataSignHash" TextWrapping="Wrap" Grid.Row="4" IsReadOnly="True" TextChanged="TbDataSignHash_OnTextChanged" />
+        <TextBox x:Name="TbVerifyHash" TextWrapping="Wrap" Grid.Row="4" Grid.Column="1"  IsReadOnly="True" />
+
     </Grid>
 </Window>
